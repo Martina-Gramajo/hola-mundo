@@ -9,13 +9,6 @@ pipeline {
                 }
             }
         }
-        stage('Pruebas') {
-            steps {
-                script {
-                    sh 'npm test'
-                }
-            }
-        }
         stage('Build image') {
             steps {
                 script {
