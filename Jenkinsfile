@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     sh 'echo "Creando imagen en Docker..."'
-                    sh 'docker build -t HOLA-MUNDO'
+                    sh 'docker build -t HOLA-MUNDO .'
                 }
             }
         }
