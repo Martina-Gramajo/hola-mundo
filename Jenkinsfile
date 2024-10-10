@@ -16,12 +16,28 @@ pipeline {
                 }
             }
         }
-        stage('Despliegue') {
+        stage('Build image') {
             steps {
                 script {
-                    sh 'echo "Desplegando la aplicación..."'
+                    sh 'echo "Creando imagen en Docker..."'
+                    sh 'docker build -t HOLA-MUNDO'
+                }
+            }
+        }
+        stage('Run image') {
+            steps {
+                script {
+                    sh 'echo "Creando contenedor de la imagen en Docker..."'
+                    sh 'docker run -d -p 8086:8086 HOLA-MUNDO'
+                }
+            }
+        }
+        stage('Test App') {
+            steps {
+                script {
+                    sh 'echo "Testeando la aplicación..."'
                     // Comando para desplegar la aplicación
-                    sh 'cp -r dist/* /ruta/al/directorio/de/despliegue/'
+                    sh 'node test-server.js'
                 }
             }
         }
