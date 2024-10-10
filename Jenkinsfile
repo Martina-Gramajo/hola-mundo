@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     sh 'echo "Creando imagen en Docker..."'
-                    sh 'docker build -t HOLA-MUNDO .'
+                    sh 'docker build -t hola-mundo1 .'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     sh 'echo "Creando contenedor de la imagen en Docker..."'
-                    sh 'docker run -d -p 8086:8086 HOLA-MUNDO'
+                    sh 'docker run -d -p 8086:8086 hola-mundo1'
                 }
             }
         }
